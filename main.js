@@ -1,1 +1,12 @@
-console.log("whats up people")
+const playerSelection = "rock"
+
+
+
+function getComputerChoice(){
+
+}
+
+function playRound(){
+
+}
+
