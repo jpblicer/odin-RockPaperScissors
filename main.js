@@ -1,7 +1,20 @@
-const playerSelection = "rOck".toLowerCase();
-const computerSelection = getComputerChoice(getRandomInt());
+let gameRound = 0;
 let computerScore = 0;
 let playerScore = 0;
+
+while(gameRound < 5){
+    gameRound++
+    game()
+}
+
+if(gameRound >= 5){
+    console.log("Game Finished \n\n Player : " + playerScore + "\n Computer : "+ computerScore);
+}
+
+function game(){
+const playerSelection = prompt("Please type: \n Rock \n Paper \n Scissors").toLowerCase();
+const computerSelection = getComputerChoice(getRandomInt());
+
 
 //From MDN docs
 function getRandomInt(max = 3){
@@ -41,4 +54,6 @@ function playRound(playerSelection, computerSelection){
 }
 
 console.log(playRound(playerSelection, computerSelection))
-console.log(computerScore, playerScore)
+console.log(playerScore, computerScore)
+}
+
