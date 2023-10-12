@@ -21,9 +21,8 @@ function getComputerChoice(getRandomInt){
     }
 }
 
-console.log("Computer picked " + computerSelection)
 console.log("Player picked " + playerSelection)
-
+console.log("Computer picked " + computerSelection)
 
 function playRound(playerSelection, computerSelection){
     if(playerSelection === computerSelection){
@@ -34,10 +33,10 @@ function playRound(playerSelection, computerSelection){
         (playerSelection === "scissors" && computerSelection === "paper")
         ){
             playerScore++
-            return "Player wins!"
+            return playerSelection + " beats " + computerSelection + ", Player wins!"
     }else{
         computerScore++
-        return "Computer Wins!"
+        return computerSelection + " beats " + playerSelection + ", Computer Wins!"
     }
 }
 
