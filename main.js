@@ -27,9 +27,15 @@ console.log("player picked " + playerSelection)
 function playRound(playerSelection, computerSelection){
     if(playerSelection === computerSelection){
         return "Tie"
+    }else if(
+        (playerSelection === "rock" && computerSelection === "scissors") ||
+        (playerSelection === "paper" && computerSelection === "rock") ||
+        (playerSelection === "scissors" && computerSelection === "paper")
+        ){
+        return "Player wins!"
     }else{
-        return "Not a tie"
+        return "Computer Wins!"
     }
 }
 
-console.log(playRound(playerSelection, computerSelection))
+console.log(playRound())
