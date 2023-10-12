@@ -1,6 +1,7 @@
-const playerSelection = "rock"
-const computerSelection = getComputerChoice(getRandomInt())
-
+const playerSelection = "rOck".toLowerCase();
+const computerSelection = getComputerChoice(getRandomInt());
+let computerScore = 0;
+let playerScore = 0;
 
 //From MDN docs
 function getRandomInt(max = 3){
@@ -20,8 +21,8 @@ function getComputerChoice(getRandomInt){
     }
 }
 
-console.log("computer picked " + computerSelection)
-console.log("player picked " + playerSelection)
+console.log("Computer picked " + computerSelection)
+console.log("Player picked " + playerSelection)
 
 
 function playRound(playerSelection, computerSelection){
@@ -32,10 +33,13 @@ function playRound(playerSelection, computerSelection){
         (playerSelection === "paper" && computerSelection === "rock") ||
         (playerSelection === "scissors" && computerSelection === "paper")
         ){
-        return "Player wins!"
+            playerScore++
+            return "Player wins!"
     }else{
+        computerScore++
         return "Computer Wins!"
     }
 }
 
-console.log(playRound())
+console.log(playRound(playerSelection, computerSelection))
+console.log(computerScore, playerScore)
