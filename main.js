@@ -1,7 +1,16 @@
+const playerRockButtonElement = document.querySelector("#rock");
+const playerPaperButtonElement = document.querySelector("#paper");
+const playerScissorsButtonElement = document.querySelector("#scissors");
+
 let gameRound = 0;
 let computerScore = 0;
 let playerScore = 0;
 
+
+game("paper")
+
+
+/*
 while(gameRound < 5){
     gameRound++
     game()
@@ -10,9 +19,10 @@ while(gameRound < 5){
 if(gameRound >= 5){
     console.log("Game Finished \n\n Player : " + playerScore + "\n Computer : "+ computerScore);
 }
+*/
 
-function game(){
-const playerSelection = prompt("Please type: \n Rock \n Paper \n Scissors").toLowerCase();
+function game(playerSelection){
+//const playerSelection = prompt("Please type: \n Rock \n Paper \n Scissors").toLowerCase();
 const computerSelection = getComputerChoice(getRandomInt());
 
 
