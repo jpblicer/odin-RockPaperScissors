@@ -1,3 +1,17 @@
+const resultsElement = document.querySelector("#results");
+const gameRoundCounter = document.createElement("p");
+const playerScoreCounter = document.createElement("p");
+const computerScoreCounter = document.createElement("p");
+const roundResult = document.createElement("p");
+
+let gameRound = 0;
+let computerScore = 0;
+let playerScore = 0;
+
+
+
+
+
 const playerSelectionButtonElements = document.querySelectorAll("button")
 playerSelectionButtonElements.forEach(button => {
     button.addEventListener("click", test)
@@ -7,9 +21,6 @@ playerSelectionButtonElements.forEach(button => {
 });
 
 
-let gameRound = 0;
-let computerScore = 0;
-let playerScore = 0;
 
 
 
@@ -70,5 +81,20 @@ function playRound(playerSelection, computerSelection){
 
 console.log(playRound(playerSelection, computerSelection))
 console.log(playerScore, computerScore)
+
+
+gameRoundCounter.textContent = "Current Round: " + gameRound
+resultsElement.appendChild(gameRoundCounter)
+
+playerScoreCounter.textContent = "Player Score: " + playerScore;
+resultsElement.appendChild(playerScoreCounter)
+
+computerScoreCounter.textContent = "Computer Score: " + computerScore
+resultsElement.appendChild(computerScoreCounter)
+
+roundResult.textContent = playRound(playerSelection, computerSelection)
+resultsElement.appendChild(roundResult)
+
+
 }
 
