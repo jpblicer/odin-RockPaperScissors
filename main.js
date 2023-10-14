@@ -1,13 +1,18 @@
-const playerRockButtonElement = document.querySelector("#rock");
-const playerPaperButtonElement = document.querySelector("#paper");
-const playerScissorsButtonElement = document.querySelector("#scissors");
+const playerSelectionButtonElements = document.querySelectorAll("button")
+playerSelectionButtonElements.forEach(button => {
+    button.addEventListener("click", test)
+    function test (event){
+        return game(event.target.value)
+    }
+});
+
 
 let gameRound = 0;
 let computerScore = 0;
 let playerScore = 0;
 
 
-game("paper")
+
 
 
 /*
