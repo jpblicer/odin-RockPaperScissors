@@ -1,3 +1,4 @@
+const playerSelectionButtonElements = document.querySelectorAll("button")
 const resultsElement = document.querySelector("#results");
 const gameRoundCounter = document.createElement("p");
 const playerScoreCounter = document.createElement("p");
@@ -8,39 +9,23 @@ let gameRound = 0;
 let computerScore = 0;
 let playerScore = 0;
 
-
-
-
-
-const playerSelectionButtonElements = document.querySelectorAll("button")
-playerSelectionButtonElements.forEach(button => {
-    button.addEventListener("click", test)
-    function test (event){
-        return game(event.target.value)
-    }
+playerSelectionButtonElements.forEach((button) => {
+    button.addEventListener("click", playRound)
 });
 
+function playRound(event){
+    console.log(event.target.value)
+    if(gameRound >= 5){
+        resultsElement.innerHTML = "Game Finished <br /> Player : " + playerScore + "<br /> Computer : "+ computerScore;
+    }else{
+        ++gameRound
+        return game(event.target.value)
+}};
 
-
-
-
-
-
-/*
-while(gameRound < 5){
-    gameRound++
-    game()
-}
-
-if(gameRound >= 5){
-    console.log("Game Finished \n\n Player : " + playerScore + "\n Computer : "+ computerScore);
-}
-*/
 
 function game(playerSelection){
-//const playerSelection = prompt("Please type: \n Rock \n Paper \n Scissors").toLowerCase();
-const computerSelection = getComputerChoice(getRandomInt());
 
+const computerSelection = getComputerChoice(getRandomInt());
 
 //From MDN docs
 function getRandomInt(max = 3){
@@ -60,28 +45,23 @@ function getComputerChoice(getRandomInt){
     }
 }
 
-console.log("Player picked " + playerSelection)
-console.log("Computer picked " + computerSelection)
+let computerPicked = "Computer picked " + computerSelection;
 
 function playRound(playerSelection, computerSelection){
     if(playerSelection === computerSelection){
-        return "Tie"
+        return computerPicked + " too. It's a Tie"
     }else if(
         (playerSelection === "rock" && computerSelection === "scissors") ||
         (playerSelection === "paper" && computerSelection === "rock") ||
         (playerSelection === "scissors" && computerSelection === "paper")
         ){
             playerScore++
-            return playerSelection + " beats " + computerSelection + ", Player wins!"
+            return computerPicked + ". " + playerSelection + " beats " + computerSelection + ", Player wins!"
     }else{
         computerScore++
-        return computerSelection + " beats " + playerSelection + ", Computer Wins!"
+        return computerPicked + ". " + computerSelection + " beats " + playerSelection + ", Computer Wins!"
     }
 }
-
-console.log(playRound(playerSelection, computerSelection))
-console.log(playerScore, computerScore)
-
 
 gameRoundCounter.textContent = "Current Round: " + gameRound
 resultsElement.appendChild(gameRoundCounter)
